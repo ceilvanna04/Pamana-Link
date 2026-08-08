@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pamana Media & Publishing, Inc. — Connect With Us</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/css/lobster-two@latest/latin-700-italic.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/css/montserrat@latest/latin-400-normal.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/css/montserrat@latest/latin-500-normal.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/css/montserrat@latest/latin-600-normal.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/css/montserrat@latest/latin-700-normal.css">
+<style>
+  :root{
+    --purple-deep:#160428;
+    --purple-dark:#2a0a4a;
+    --purple-mid:#41136e;
+    --purple-soft:#5a2b93;
+    --purple-brand:#5b2d84;
+    --gold:#d4af37;
+    --gold-light:#f6dc8a;
+    --gold-dark:#a97f1c;
+    --cream:#fdf6e3;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    font-family:'Montserrat',sans-serif;
+    background:radial-gradient(1200px 700px at 50% -10%, var(--purple-mid), transparent 60%),
+               radial-gradient(900px 600px at 85% 110%, #3a0f63, transparent 55%),
+               linear-gradient(160deg, var(--purple-deep) 0%, var(--purple-dark) 55%, #1d0637 100%);
+    color:var(--cream);
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:48px 20px;
+    overflow-x:hidden;
+    position:relative;
+  }
+  #sparkCanvas{
+    position:fixed;
+    inset:0;
+    width:100%;
+    height:100%;
+    pointer-events:none;
+    z-index:0;
+  }
+  .sr-only{
+    position:absolute;width:1px;height:1px;
+    padding:0;margin:-1px;overflow:hidden;
+    clip:rect(0 0 0 0);white-space:nowrap;border:0;
+  }
+  .royal-card{
+    position:relative;
+    z-index:1;
+    width:100%;
+    max-width:600px;
+    background:linear-gradient(170deg, rgba(65,19,110,.85), rgba(26,5,48,.92));
+    border:1px solid rgba(212,175,55,.45);
+    border-radius:22px;
+    padding:46px 44px 36px;
+    text-align:center;
+    box-shadow:0 30px 80px rgba(0,0,0,.55), 0 0 60px rgba(212,175,55,.12) inset;
+    backdrop-filter:blur(6px);
+    animation:cardRise .9s cubic-bezier(.22,1,.36,1) both;
+  }
+  .royal-card::before{
+    content:"";
+    position:absolute;
+    inset:10px;
+    border:1px solid rgba(212,175,55,.35);
+    border-radius:15px;
+    pointer-events:none;
+  }
+  .corner{position:absolute;width:34px;height:34px;border-color:var(--gold);border-style:solid;opacity:.9;}
+  .corner.tl{top:16px;left:16px;border-width:3px 0 0 3px;border-radius:10px 0 0 0;}
+  .corner.tr{top:16px;right:16px;border-width:3px 3px 0 0;border-radius:0 10px 0 0;}
+  .corner.bl{bottom:16px;left:16px;border-width:0 0 3px 3px;border-radius:0 0 0 10px;}
+  .corner.br{bottom:16px;right:16px;border-width:0 3px 3px 0;border-radius:0 0 10px 0;}
+  @keyframes cardRise{
+    from{opacity:0;transform:translateY(36px) scale(.97);}
+    to{opacity:1;transform:translateY(0) scale(1);}
+  }
+  .logo-plaque{
+    background:#f6f6f9;
+    border-radius:18px;
+    padding:22px 26px 16px;
+    border:1px solid rgba(212,175,55,.6);
+    box-shadow:0 14px 38px rgba(0,0,0,.5), 0 0 30px rgba(212,175,55,.28);
+    margin:0 auto 8px;
+    animation:plaqueFloat 5.5s ease-in-out infinite;
+    overflow: hidden;
+  }
+  @keyframes plaqueFloat{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-7px);}
+  }
+  .logo-plaque svg{width:100%;height:auto;display:block; border-radius: 12px;}
+  .ornament{
+    display:flex;align-items:center;justify-content:center;gap:12px;
+    margin:22px auto 20px;max-width:320px;
+  }
+  .ornament .line{flex:1;height:1px;background:linear-gradient(90deg, transparent, var(--gold));}
+  .ornament .line:last-child{background:linear-gradient(90deg, var(--gold), transparent);}
+  .ornament .diamond{width:9px;height:9px;background:var(--gold);transform:rotate(45deg);box-shadow:0 0 10px rgba(212,175,55,.8);}
+  .connect-title{
+    font-size:1.05rem;
+    color:var(--gold-light);
+    margin-bottom:18px;
+    font-weight:700;
+    letter-spacing:2px;
+    text-transform:uppercase;
+  }
+  .btn-facebook{
+    display:inline-flex;align-items:center;justify-content:center;gap:12px;
+    width:100%;max-width:380px;
+    padding:16px 26px;border-radius:60px;
+    text-decoration:none;font-weight:700;font-size:1rem;letter-spacing:.6px;
+    color:#2a0a4a;
+    background:linear-gradient(120deg, var(--gold-dark), var(--gold) 35%, var(--gold-light) 60%, var(--gold) 90%);
+    background-size:200% 100%;background-position:0% 0;
+    box-shadow:0 10px 26px rgba(0,0,0,.45), 0 0 0 1px rgba(255,243,196,.4) inset;
+    transition:background-position .5s ease, transform .25s ease, box-shadow .25s ease;
+  }
+  .btn-facebook:hover{
+    background-position:100% 0;transform:translateY(-3px);
+    box-shadow:0 16px 34px rgba(0,0,0,.5), 0 0 26px rgba(212,175,55,.45), 0 0 0 1px rgba(255,243,196,.6) inset;
+  }
+  .btn-facebook:active{transform:translateY(-1px) scale(.99);}
+  .btn-facebook svg{flex-shrink:0;}
+  .divider-text{
+    margin:24px 0 16px;
+    font-size:.78rem;letter-spacing:3px;text-transform:uppercase;
+    color:rgba(253,246,227,.55);
+  }
+  .email-list{display:flex;flex-direction:column;gap:14px;}
+  .email-link{
+    display:flex;align-items:center;gap:16px;text-align:left;
+    padding:15px 20px;border-radius:14px;text-decoration:none;
+    background:rgba(212,175,55,.07);
+    border:1px solid rgba(212,175,55,.35);
+    transition:transform .25s ease, background .25s ease, border-color .25s ease, box-shadow .25s ease;
+  }
+  .email-link:hover{
+    transform:translateX(6px);
+    background:rgba(212,175,55,.15);
+    border-color:rgba(246,220,138,.75);
+    box-shadow:0 8px 24px rgba(0,0,0,.35), 0 0 18px rgba(212,175,55,.2);
+  }
+  .email-icon{
+    width:44px;height:44px;flex-shrink:0;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    background:linear-gradient(140deg, var(--purple-soft), var(--purple-dark));
+    border:1px solid rgba(212,175,55,.6);
+    box-shadow:0 0 14px rgba(212,175,55,.25);
+  }
+  .email-meta{display:flex;flex-direction:column;gap:3px;min-width:0;}
+  .email-label{font-size:.72rem;letter-spacing:2px;text-transform:uppercase;color:rgba(246,220,138,.8);font-weight:700;}
+  .email-address{color:var(--cream);font-size:.95rem;font-weight:600;word-break:break-all;}
+  .email-arrow{margin-left:auto;color:var(--gold);transition:transform .25s ease;}
+  .email-link:hover .email-arrow{transform:translateX(4px);}
+  footer{margin-top:28px;font-size:.72rem;letter-spacing:1.5px;color:rgba(253,246,227,.45);}
+  footer .gold{color:var(--gold);}
+  @media (max-width:520px){
+    .royal-card{padding:38px 20px 28px;}
+    .logo-plaque{padding:16px 14px 10px;}
+    .email-link{padding:13px 16px;}
+  }
+</style>
+</head>
+<body>
+
+<canvas id="sparkCanvas"></canvas>
+
+<main class="royal-card">
+  <span class="corner tl"></span><span class="corner tr"></span>
+  <span class="corner bl"></span><span class="corner br"></span>
+
+  <h1 class="sr-only">Pamana Media &amp; Publishing, Inc.</h1>
+
+  <div class="logo-plaque">
+    <!-- Pamana Media & Publishing, Inc. logo -->
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2048 1137" role="img" aria-labelledby="title desc" preserveAspectRatio="xMidYMid meet">
+      <title id="title">Pamana Media &amp; Publishing, Inc.</title>
+      <desc id="desc">Pamana Media &amp; Publishing, Inc. logo with purple lettering and gold emblem.</desc>
+      <rect width="2048" height="1137" fill="#ffffff"/>
+      <g fill-rule="evenodd" stroke="none">
+        <path fill="#603179" d="M 1543 935 L 1536 935 L 1536 938 L 1534 942 L 1534 948 L 1533 949 L 1532 958 L 1538 958 L 1539 950 L 1542 942 Z M 1844 934 L 1842 937 L 1842 941 L 1845 943 L 1851 942 L 1852 940 L 1851 935 L 1850 934 Z M 1097 863 L 1097 941 L 1098 942 L 1103 942 L 1103 939 L 1104 938 L 1104 864 L 1103 863 Z M 1658 862 L 1657 863 L 1657 941 L 1658 942 L 1663 942 L 1664 941 L 1663 939 L 1663 920 L 1664 919 L 1664 907 L 1663 906 L 1664 890 L 1663 888 L 1664 887 L 1664 880 L 1667 879 L 1674 889 L 1675 892 L 1677 893 L 1677 895 L 1683 902 L 1684 905 L 1696 922 L 1699 928 L 1705 935 L 1705 937 L 1708 941 L 1714 942 L 1715 941 L 1715 863 L 1709 862 L 1709 923 L 1707 925 L 1702 921 L 1701 918 L 1698 915 L 1695 909 L 1690 903 L 1664 863 L 1659 863 Z M 1621 862 L 1618 863 L 1618 941 L 1619 942 L 1624 942 L 1625 941 L 1625 874 L 1624 873 L 1625 872 L 1625 862 Z M 1345 863 L 1345 869 L 1344 870 L 1345 871 L 1345 941 L 1346 942 L 1351 942 L 1351 883 L 1352 880 L 1355 879 L 1376 912 L 1382 919 L 1390 933 L 1392 934 L 1395 940 L 1397 942 L 1402 942 L 1403 940 L 1403 936 L 1402 935 L 1402 932 L 1403 931 L 1403 924 L 1402 923 L 1403 920 L 1403 875 L 1402 874 L 1403 864 L 1402 862 L 1398 862 L 1396 864 L 1396 924 L 1395 925 L 1389 920 L 1386 914 L 1383 911 L 1382 908 L 1377 902 L 1372 893 L 1369 890 L 1362 878 L 1358 874 L 1352 864 L 1350 862 Z M 1306 862 L 1305 863 L 1305 939 L 1307 942 L 1311 942 L 1312 941 L 1312 863 L 1307 863 Z M 1213 863 L 1213 941 L 1214 942 L 1219 942 L 1220 941 L 1220 905 L 1222 903 L 1263 903 L 1265 905 L 1265 941 L 1266 942 L 1271 942 L 1271 863 L 1270 862 L 1269 863 L 1265 863 L 1265 897 L 1264 898 L 1221 898 L 1220 897 L 1220 862 Z M 1028 862 L 1027 863 L 1027 941 L 1028 942 L 1070 942 L 1071 941 L 1071 938 L 1070 937 L 1035 937 L 1034 936 L 1034 863 L 1033 862 Z M 942 863 L 943 865 L 943 869 L 942 870 L 942 939 L 944 942 L 979 942 L 980 941 L 984 941 L 990 938 L 995 933 L 998 926 L 998 914 L 993 906 L 987 901 L 988 898 L 990 897 L 995 888 L 995 878 L 991 870 L 987 866 L 978 862 L 944 862 Z M 949 905 L 951 903 L 976 903 L 983 905 L 988 909 L 992 917 L 992 923 L 990 929 L 984 935 L 980 937 L 951 937 L 949 935 Z M 949 868 L 950 867 L 977 867 L 985 872 L 989 882 L 989 885 L 986 892 L 981 897 L 976 899 L 951 899 L 949 897 Z M 910 862 L 906 862 L 904 864 L 904 871 L 905 873 L 904 874 L 904 921 L 903 922 L 903 925 L 897 934 L 887 938 L 872 937 L 866 933 L 860 924 L 860 919 L 859 918 L 859 863 L 853 863 L 853 909 L 852 910 L 853 911 L 852 914 L 853 915 L 852 916 L 853 917 L 854 925 L 857 930 L 857 932 L 864 939 L 876 943 L 888 943 L 889 942 L 896 941 L 901 938 L 908 930 L 908 927 L 911 920 L 911 864 Z M 812 864 L 804 863 L 803 862 L 777 862 L 774 864 L 774 941 L 775 942 L 780 942 L 781 941 L 781 912 L 782 911 L 807 911 L 808 910 L 811 910 L 815 908 L 823 900 L 825 896 L 825 893 L 826 892 L 826 881 L 825 878 L 823 876 L 823 874 L 817 867 Z M 781 868 L 782 867 L 803 867 L 810 869 L 811 871 L 813 871 L 815 873 L 820 885 L 820 889 L 816 899 L 812 903 L 806 906 L 782 906 L 781 905 L 781 874 L 780 873 Z M 535 862 L 528 881 L 526 884 L 524 892 L 516 910 L 514 918 L 507 934 L 505 942 L 511 942 L 512 941 L 517 926 L 521 921 L 555 921 L 558 923 L 565 941 L 566 942 L 572 942 L 567 927 L 564 922 L 563 917 L 558 906 L 556 898 L 553 893 L 548 877 L 544 869 L 543 864 L 540 862 Z M 539 874 L 541 877 L 547 895 L 554 911 L 554 915 L 553 916 L 523 916 L 522 913 L 527 902 L 527 900 L 530 895 L 530 892 L 535 881 L 535 878 L 536 876 Z M 474 862 L 473 863 L 473 941 L 474 942 L 479 942 L 480 941 L 480 874 L 479 873 L 480 872 L 480 863 Z M 378 862 L 377 863 L 377 941 L 378 942 L 410 942 L 411 941 L 418 941 L 420 939 L 425 938 L 429 934 L 434 931 L 439 924 L 443 914 L 443 911 L 444 910 L 444 895 L 440 882 L 430 870 L 426 867 L 416 863 L 413 863 L 412 862 Z M 385 867 L 410 867 L 411 868 L 415 868 L 420 871 L 422 871 L 430 878 L 435 886 L 438 896 L 438 907 L 437 908 L 436 916 L 430 926 L 422 933 L 413 937 L 385 937 L 383 933 L 383 926 L 384 925 L 383 923 L 383 870 Z M 302 863 L 302 940 L 304 942 L 348 942 L 348 937 L 311 937 L 309 935 L 309 906 L 310 905 L 335 905 L 336 904 L 339 904 L 340 905 L 345 903 L 345 900 L 311 900 L 309 898 L 309 869 L 311 867 L 347 867 L 347 863 L 345 862 L 306 862 L 305 863 Z M 199 863 L 199 941 L 200 942 L 205 942 L 205 939 L 206 938 L 206 898 L 205 897 L 206 878 L 208 877 L 210 879 L 210 881 L 214 886 L 216 891 L 230 913 L 231 917 L 235 920 L 248 900 L 251 893 L 260 878 L 262 877 L 264 879 L 264 941 L 265 942 L 269 942 L 270 941 L 270 863 L 269 862 L 262 862 L 261 863 L 261 865 L 254 875 L 245 892 L 236 906 L 233 906 L 230 902 L 221 885 L 219 884 L 218 880 L 211 870 L 207 862 L 205 863 L 204 862 Z M 1774 862 L 1763 867 L 1757 872 L 1751 879 L 1748 885 L 1745 894 L 1745 910 L 1747 914 L 1747 917 L 1753 928 L 1762 937 L 1766 938 L 1770 941 L 1774 941 L 1779 943 L 1793 943 L 1794 942 L 1798 942 L 1810 936 L 1818 928 L 1820 924 L 1817 922 L 1814 922 L 1807 931 L 1796 937 L 1782 938 L 1781 937 L 1776 937 L 1773 935 L 1771 935 L 1766 932 L 1759 924 L 1757 923 L 1757 921 L 1754 917 L 1752 910 L 1752 893 L 1758 880 L 1765 873 L 1774 868 L 1781 866 L 1791 866 L 1800 869 L 1805 872 L 1814 882 L 1817 882 L 1819 880 L 1819 878 L 1810 868 L 1797 862 L 1788 862 L 1787 861 Z M 1461 862 L 1453 866 L 1451 866 L 1445 870 L 1438 878 L 1432 892 L 1432 912 L 1433 913 L 1433 916 L 1438 924 L 1438 926 L 1442 931 L 1453 939 L 1465 943 L 1481 943 L 1485 941 L 1488 941 L 1495 938 L 1504 930 L 1510 918 L 1511 906 L 1506 906 L 1505 905 L 1504 906 L 1491 906 L 1490 905 L 1487 906 L 1471 906 L 1471 909 L 1472 910 L 1502 910 L 1504 912 L 1504 915 L 1500 925 L 1492 933 L 1484 937 L 1479 937 L 1478 938 L 1462 937 L 1457 934 L 1455 934 L 1445 925 L 1440 916 L 1438 909 L 1438 895 L 1440 888 L 1447 877 L 1456 870 L 1467 866 L 1477 866 L 1484 868 L 1494 874 L 1495 876 L 1498 878 L 1500 882 L 1503 882 L 1506 880 L 1505 877 L 1496 868 L 1489 864 L 1487 864 L 1484 862 L 1478 862 L 1477 861 Z M 1149 862 L 1142 866 L 1136 874 L 1135 877 L 1135 887 L 1137 890 L 1137 892 L 1141 897 L 1143 897 L 1145 899 L 1152 902 L 1155 902 L 1158 904 L 1164 905 L 1173 910 L 1178 915 L 1180 920 L 1180 924 L 1178 930 L 1172 936 L 1165 937 L 1164 938 L 1156 938 L 1147 935 L 1139 927 L 1138 923 L 1132 924 L 1132 927 L 1135 933 L 1139 937 L 1146 941 L 1153 943 L 1167 943 L 1171 941 L 1174 941 L 1182 935 L 1186 926 L 1186 916 L 1183 911 L 1178 906 L 1173 903 L 1159 898 L 1156 898 L 1154 896 L 1152 896 L 1147 893 L 1143 889 L 1141 885 L 1142 875 L 1148 869 L 1154 866 L 1163 866 L 1168 868 L 1176 875 L 1179 880 L 1183 878 L 1183 875 L 1177 867 L 1168 862 L 1164 862 L 1163 861 Z M 655 866 L 650 872 L 648 878 L 648 885 L 649 886 L 649 889 L 653 895 L 653 898 L 643 906 L 640 912 L 640 915 L 639 916 L 639 926 L 641 932 L 646 938 L 657 943 L 672 943 L 684 938 L 684 937 L 687 935 L 689 935 L 697 943 L 700 942 L 702 940 L 701 938 L 693 930 L 693 927 L 697 917 L 697 911 L 694 909 L 692 909 L 690 919 L 687 922 L 685 921 L 662 897 L 656 889 L 655 886 L 655 877 L 657 873 L 661 869 L 667 866 L 674 866 L 679 868 L 685 874 L 687 878 L 689 878 L 692 876 L 690 870 L 685 865 L 675 861 L 662 862 Z M 655 903 L 659 903 L 682 927 L 683 930 L 679 934 L 674 937 L 671 937 L 670 938 L 659 938 L 653 936 L 648 931 L 645 924 L 645 918 L 647 912 Z M 401 753 L 402 774 L 407 788 L 409 790 L 409 792 L 412 796 L 426 809 L 436 814 L 440 814 L 449 817 L 466 817 L 467 816 L 473 816 L 478 814 L 482 814 L 501 804 L 515 791 L 518 792 L 519 798 L 524 806 L 534 811 L 537 811 L 542 813 L 548 813 L 549 814 L 638 814 L 639 813 L 646 813 L 647 812 L 656 811 L 668 806 L 673 803 L 674 801 L 682 794 L 683 795 L 683 800 L 679 811 L 679 814 L 687 814 L 688 813 L 690 814 L 723 814 L 724 813 L 729 813 L 730 812 L 737 811 L 746 806 L 747 804 L 750 803 L 751 801 L 764 791 L 765 789 L 779 778 L 793 765 L 798 762 L 800 759 L 833 731 L 836 732 L 836 736 L 817 787 L 817 801 L 821 808 L 826 812 L 830 814 L 834 814 L 840 816 L 849 816 L 850 815 L 858 814 L 863 811 L 865 811 L 867 809 L 869 809 L 882 801 L 964 731 L 966 731 L 968 733 L 964 743 L 962 753 L 954 777 L 953 790 L 958 801 L 966 809 L 978 814 L 1070 814 L 1071 813 L 1079 813 L 1080 812 L 1089 811 L 1103 804 L 1109 798 L 1113 791 L 1114 787 L 1117 785 L 1124 796 L 1135 807 L 1146 813 L 1152 814 L 1156 816 L 1161 816 L 1162 817 L 1178 817 L 1179 816 L 1185 816 L 1186 815 L 1196 813 L 1213 804 L 1227 791 L 1230 792 L 1232 800 L 1236 806 L 1245 811 L 1249 811 L 1254 813 L 1261 813 L 1262 814 L 1349 814 L 1350 813 L 1360 813 L 1361 812 L 1371 810 L 1385 803 L 1396 791 L 1398 794 L 1392 814 L 1395 814 L 1396 813 L 1399 814 L 1424 814 L 1425 813 L 1431 814 L 1432 813 L 1436 813 L 1440 811 L 1443 811 L 1453 806 L 1455 806 L 1472 795 L 1504 766 L 1510 762 L 1512 759 L 1519 754 L 1520 752 L 1524 750 L 1529 744 L 1534 741 L 1535 739 L 1545 731 L 1548 732 L 1548 735 L 1536 771 L 1536 774 L 1531 791 L 1531 797 L 1533 803 L 1535 806 L 1539 809 L 1546 812 L 1558 813 L 1559 814 L 1650 814 L 1651 813 L 1656 813 L 1661 811 L 1666 811 L 1676 806 L 1678 806 L 1683 802 L 1686 801 L 1694 792 L 1695 789 L 1699 786 L 1702 789 L 1706 796 L 1720 809 L 1730 814 L 1734 814 L 1737 816 L 1743 816 L 1744 817 L 1759 817 L 1760 816 L 1767 816 L 1771 814 L 1778 813 L 1796 803 L 1809 791 L 1812 792 L 1813 798 L 1818 806 L 1825 810 L 1831 812 L 1835 812 L 1836 813 L 1843 813 L 1844 814 L 1931 814 L 1932 813 L 1940 813 L 1941 812 L 1950 811 L 1962 806 L 1969 801 L 1975 794 L 1981 783 L 1981 780 L 1980 779 L 1892 779 L 1890 777 L 1896 761 L 1899 748 L 1905 732 L 1906 726 L 1908 723 L 1908 720 L 1912 710 L 1912 707 L 1916 697 L 1916 694 L 1920 684 L 1920 681 L 1926 663 L 1794 663 L 1793 664 L 1787 664 L 1786 665 L 1778 665 L 1774 667 L 1770 667 L 1763 670 L 1757 671 L 1751 675 L 1746 676 L 1744 678 L 1739 680 L 1728 688 L 1726 691 L 1724 691 L 1708 710 L 1701 724 L 1700 730 L 1697 737 L 1696 749 L 1695 750 L 1695 769 L 1697 774 L 1697 778 L 1694 780 L 1691 779 L 1611 779 L 1610 776 L 1612 773 L 1612 770 L 1621 744 L 1621 741 L 1625 731 L 1628 718 L 1630 715 L 1630 712 L 1635 699 L 1635 696 L 1638 688 L 1638 683 L 1639 682 L 1639 675 L 1636 665 L 1631 660 L 1624 657 L 1604 657 L 1587 662 L 1575 668 L 1555 683 L 1551 688 L 1546 691 L 1527 709 L 1493 738 L 1491 737 L 1491 733 L 1493 730 L 1497 713 L 1499 710 L 1499 707 L 1503 697 L 1506 684 L 1511 671 L 1512 663 L 1438 663 L 1437 668 L 1435 670 L 1434 677 L 1432 680 L 1428 697 L 1416 733 L 1415 740 L 1404 772 L 1404 777 L 1402 779 L 1310 779 L 1309 778 L 1309 774 L 1314 762 L 1318 745 L 1321 739 L 1322 733 L 1324 730 L 1324 727 L 1334 698 L 1334 695 L 1337 688 L 1337 685 L 1342 672 L 1344 663 L 1215 663 L 1214 664 L 1196 665 L 1192 667 L 1184 668 L 1173 672 L 1162 678 L 1160 678 L 1141 692 L 1129 706 L 1120 722 L 1115 738 L 1114 750 L 1113 751 L 1113 768 L 1115 775 L 1115 778 L 1114 779 L 1033 779 L 1032 780 L 1028 778 L 1028 774 L 1030 772 L 1030 769 L 1033 763 L 1036 752 L 1038 749 L 1038 746 L 1041 740 L 1042 734 L 1047 723 L 1051 711 L 1051 708 L 1055 700 L 1055 697 L 1058 690 L 1058 684 L 1059 683 L 1058 670 L 1055 665 L 1051 661 L 1041 657 L 1021 657 L 1020 658 L 1016 658 L 1004 662 L 993 668 L 979 678 L 975 683 L 968 688 L 959 696 L 958 698 L 953 701 L 919 732 L 916 733 L 914 730 L 918 721 L 920 713 L 922 710 L 922 707 L 924 704 L 931 683 L 931 670 L 926 662 L 916 657 L 893 657 L 885 660 L 880 660 L 858 671 L 854 675 L 849 678 L 848 680 L 841 685 L 802 720 L 780 738 L 778 737 L 778 732 L 790 695 L 792 685 L 795 679 L 795 676 L 799 663 L 725 663 L 718 682 L 718 685 L 715 692 L 711 709 L 708 715 L 705 728 L 703 731 L 702 739 L 698 751 L 696 754 L 691 775 L 688 779 L 598 779 L 597 778 L 597 774 L 603 758 L 603 755 L 605 752 L 606 745 L 611 733 L 613 723 L 616 717 L 616 713 L 619 707 L 619 704 L 625 688 L 625 684 L 627 681 L 632 663 L 500 663 L 499 664 L 485 665 L 480 667 L 476 667 L 469 670 L 466 670 L 459 673 L 457 675 L 452 676 L 438 685 L 425 696 L 413 712 L 408 722 L 404 734 L 404 738 L 402 744 L 402 752 Z M 1838 697 L 1839 698 L 1839 703 L 1837 706 L 1835 716 L 1831 726 L 1831 729 L 1829 732 L 1829 735 L 1822 755 L 1822 759 L 1819 765 L 1816 778 L 1814 780 L 1803 780 L 1802 779 L 1795 779 L 1784 774 L 1782 774 L 1780 771 L 1778 770 L 1775 763 L 1775 754 L 1791 699 L 1793 697 Z M 1256 697 L 1257 698 L 1257 704 L 1253 713 L 1252 720 L 1247 733 L 1247 737 L 1243 746 L 1243 749 L 1240 756 L 1240 759 L 1238 762 L 1238 765 L 1234 778 L 1232 780 L 1221 780 L 1220 779 L 1209 778 L 1202 775 L 1194 766 L 1193 755 L 1194 754 L 1194 749 L 1198 739 L 1200 729 L 1205 715 L 1205 712 L 1209 702 L 1209 699 L 1211 697 Z M 544 697 L 545 698 L 545 704 L 541 713 L 541 717 L 537 726 L 537 729 L 534 736 L 534 739 L 531 746 L 531 749 L 528 756 L 528 759 L 526 763 L 526 766 L 522 778 L 520 780 L 509 780 L 508 779 L 501 779 L 492 776 L 490 774 L 488 774 L 482 766 L 481 756 L 482 755 L 482 749 L 487 735 L 489 725 L 491 722 L 491 719 L 493 715 L 493 712 L 496 705 L 497 699 L 499 697 Z M 104 813 L 105 814 L 173 814 L 174 813 L 179 814 L 181 811 L 182 805 L 186 795 L 189 781 L 191 778 L 191 774 L 196 762 L 196 758 L 200 747 L 201 740 L 204 735 L 212 734 L 220 731 L 226 731 L 241 726 L 246 726 L 263 720 L 273 718 L 276 716 L 279 716 L 285 713 L 288 713 L 293 710 L 296 710 L 304 706 L 309 705 L 330 695 L 332 695 L 338 691 L 342 690 L 352 684 L 354 684 L 361 679 L 363 679 L 364 677 L 381 667 L 399 653 L 412 639 L 414 638 L 415 635 L 420 630 L 427 619 L 429 614 L 431 612 L 431 608 L 434 604 L 434 601 L 436 597 L 437 589 L 438 588 L 438 583 L 439 582 L 439 563 L 437 558 L 436 549 L 430 536 L 423 527 L 414 519 L 403 512 L 401 512 L 396 509 L 379 504 L 373 504 L 369 502 L 359 502 L 358 501 L 351 501 L 350 500 L 330 500 L 329 499 L 109 499 L 108 500 L 104 500 L 93 517 L 93 519 L 87 527 L 87 529 L 85 530 L 72 554 L 302 554 L 303 555 L 318 555 L 319 556 L 330 558 L 338 563 L 345 573 L 347 579 L 347 584 L 348 585 L 348 594 L 347 595 L 347 601 L 346 602 L 346 607 L 344 613 L 335 630 L 318 648 L 304 659 L 301 660 L 291 667 L 278 673 L 276 675 L 273 675 L 268 678 L 266 678 L 261 681 L 251 684 L 248 686 L 245 686 L 241 688 L 238 688 L 234 690 L 226 691 L 221 693 L 217 693 L 216 691 L 222 674 L 226 657 L 230 648 L 231 641 L 234 634 L 237 621 L 239 618 L 239 615 L 247 591 L 247 588 L 249 585 L 174 585 L 168 601 L 166 611 L 162 621 L 162 624 L 155 644 L 153 654 L 149 664 L 149 667 L 147 670 L 147 673 L 142 687 L 140 697 L 136 707 L 136 710 L 128 733 L 127 740 L 125 743 L 125 746 L 118 766 L 114 783 L 112 786 L 111 793 L 109 796 L 109 799 Z"/>
+        <path fill="#CDA543" d="M 1427 235 L 1420 237 L 1415 240 L 1410 241 L 1408 243 L 1389 250 L 1387 252 L 1385 252 L 1372 259 L 1370 259 L 1366 262 L 1364 262 L 1344 272 L 1342 274 L 1338 275 L 1333 279 L 1329 280 L 1326 283 L 1322 284 L 1310 292 L 1308 292 L 1302 297 L 1300 297 L 1294 302 L 1275 313 L 1274 315 L 1271 316 L 1254 328 L 1242 338 L 1239 339 L 1238 341 L 1234 343 L 1229 347 L 1228 349 L 1218 356 L 1216 359 L 1204 368 L 1204 369 L 1191 380 L 1188 384 L 1179 391 L 1155 417 L 1151 420 L 1145 428 L 1131 443 L 1103 479 L 1098 488 L 1094 492 L 1093 495 L 1086 504 L 1086 506 L 1081 512 L 1077 520 L 1070 530 L 1070 532 L 1066 537 L 1066 539 L 1062 544 L 1062 546 L 1058 552 L 1057 556 L 1055 558 L 1055 560 L 1048 573 L 1049 575 L 1046 577 L 1045 581 L 1048 577 L 1051 575 L 1061 561 L 1064 559 L 1065 556 L 1067 555 L 1084 535 L 1086 534 L 1091 527 L 1094 525 L 1125 493 L 1133 487 L 1137 482 L 1139 482 L 1143 477 L 1157 466 L 1158 464 L 1167 458 L 1168 456 L 1180 448 L 1189 440 L 1225 415 L 1235 410 L 1241 405 L 1251 400 L 1258 395 L 1267 391 L 1269 389 L 1271 389 L 1292 377 L 1294 377 L 1300 373 L 1309 370 L 1311 368 L 1313 368 L 1322 363 L 1325 363 L 1332 359 L 1334 359 L 1347 353 L 1375 344 L 1378 342 L 1382 342 L 1385 340 L 1388 340 L 1392 338 L 1427 330 Z M 618 235 L 618 238 L 617 239 L 617 242 L 618 243 L 618 248 L 617 249 L 617 316 L 618 317 L 617 322 L 618 323 L 618 330 L 653 338 L 673 345 L 679 346 L 693 352 L 696 352 L 701 355 L 703 355 L 713 360 L 727 365 L 736 370 L 739 370 L 741 372 L 753 378 L 755 378 L 763 383 L 767 384 L 776 390 L 780 391 L 782 393 L 794 399 L 797 402 L 799 402 L 812 411 L 814 411 L 817 414 L 824 418 L 827 421 L 835 425 L 868 449 L 911 485 L 912 487 L 927 500 L 928 502 L 950 523 L 959 534 L 964 538 L 970 546 L 971 546 L 978 555 L 980 556 L 986 565 L 1000 581 L 1000 579 L 990 560 L 990 558 L 988 556 L 987 552 L 979 539 L 979 537 L 975 532 L 972 525 L 969 522 L 964 512 L 957 503 L 957 501 L 954 498 L 951 492 L 947 488 L 946 485 L 940 478 L 936 471 L 918 448 L 917 448 L 911 441 L 909 437 L 904 433 L 901 428 L 898 426 L 893 419 L 892 419 L 876 401 L 853 380 L 849 375 L 836 365 L 816 347 L 811 344 L 807 340 L 804 339 L 803 337 L 791 329 L 787 325 L 773 316 L 770 313 L 768 313 L 765 310 L 743 297 L 738 293 L 723 284 L 721 284 L 719 282 L 712 279 L 710 277 L 708 277 L 701 272 L 685 264 L 683 264 L 679 261 L 673 259 L 671 257 L 669 257 L 644 245 L 642 245 L 632 240 Z M 770 182 L 769 183 L 769 260 L 770 262 L 777 266 L 779 266 L 788 272 L 790 272 L 798 278 L 800 278 L 804 282 L 809 284 L 812 287 L 821 292 L 822 294 L 832 300 L 836 304 L 840 306 L 841 308 L 846 311 L 847 313 L 868 329 L 870 332 L 877 337 L 881 342 L 902 361 L 926 387 L 928 391 L 933 395 L 941 406 L 943 405 L 944 406 L 943 408 L 944 410 L 950 416 L 960 429 L 961 432 L 967 439 L 969 443 L 971 444 L 978 456 L 983 460 L 983 462 L 986 468 L 988 470 L 990 475 L 993 478 L 994 482 L 996 483 L 999 488 L 999 490 L 1005 498 L 1005 500 L 1008 504 L 998 474 L 994 467 L 993 462 L 990 457 L 988 450 L 984 444 L 984 441 L 979 431 L 976 430 L 976 429 L 978 428 L 976 426 L 975 422 L 969 412 L 969 410 L 965 405 L 964 401 L 962 399 L 956 386 L 953 383 L 953 381 L 941 363 L 940 359 L 938 358 L 936 353 L 926 340 L 926 338 L 923 335 L 922 332 L 920 331 L 919 328 L 912 320 L 911 317 L 874 272 L 871 270 L 864 261 L 860 258 L 838 235 L 833 232 L 832 230 L 824 224 L 821 220 L 810 212 L 808 209 L 804 207 L 798 201 L 783 191 L 779 187 Z M 1275 181 L 1267 186 L 1266 188 L 1255 196 L 1252 197 L 1251 199 L 1232 213 L 1203 239 L 1171 272 L 1149 299 L 1147 300 L 1143 307 L 1141 308 L 1138 313 L 1133 318 L 1133 320 L 1129 324 L 1128 327 L 1126 328 L 1120 338 L 1118 339 L 1118 341 L 1104 361 L 1099 371 L 1085 393 L 1085 395 L 1079 406 L 1077 408 L 1076 412 L 1074 414 L 1070 422 L 1070 424 L 1066 430 L 1063 439 L 1061 441 L 1060 446 L 1058 448 L 1058 450 L 1051 464 L 1051 467 L 1045 479 L 1045 482 L 1043 485 L 1042 491 L 1040 493 L 1037 504 L 1039 502 L 1040 498 L 1044 493 L 1047 486 L 1050 483 L 1050 481 L 1063 462 L 1064 459 L 1069 453 L 1070 450 L 1078 440 L 1078 438 L 1080 437 L 1084 432 L 1085 429 L 1089 425 L 1094 417 L 1100 411 L 1102 407 L 1104 406 L 1117 389 L 1143 361 L 1169 336 L 1175 332 L 1178 328 L 1195 315 L 1197 312 L 1199 312 L 1204 308 L 1205 306 L 1208 305 L 1227 290 L 1233 287 L 1242 280 L 1244 280 L 1250 275 L 1255 273 L 1257 271 L 1259 271 L 1264 267 L 1266 267 L 1270 264 L 1276 262 L 1275 259 L 1276 257 L 1276 183 Z"/>
+        <path fill="#FFC535" d="M 1019 266 L 1018 267 L 1006 269 L 1004 271 L 999 272 L 989 279 L 989 280 L 984 284 L 975 298 L 974 304 L 971 310 L 970 324 L 971 325 L 972 336 L 974 338 L 974 341 L 977 346 L 977 348 L 982 355 L 986 358 L 992 365 L 996 368 L 998 368 L 1000 370 L 1007 373 L 1010 373 L 1014 375 L 1020 375 L 1021 376 L 1029 376 L 1033 374 L 1043 372 L 1051 368 L 1058 363 L 1064 357 L 1071 347 L 1071 345 L 1073 342 L 1076 332 L 1077 318 L 1076 317 L 1076 309 L 1073 302 L 1073 299 L 1066 287 L 1058 279 L 1050 273 L 1046 271 L 1043 271 L 1041 269 L 1034 268 L 1029 266 Z"/>
+      </g>
+    </svg>
+  </div>
+
+  <div class="ornament" aria-hidden="true">
+    <span class="line"></span><span class="diamond"></span><span class="line"></span>
+  </div>
+
+  <p class="connect-title">Connect With Us</p>
+
+  <a class="btn-facebook" href="https://www.facebook.com/PamanaMediaPublishing" target="_blank" rel="noopener noreferrer">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047v-2.66c0-3.026 1.792-4.697 4.533-4.697 1.313 0 2.686.236 2.686.236v2.971H15.83c-1.491 0-1.956.931-1.956 1.886v2.264h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/>
+    </svg>
+    Visit Our Facebook Page
+  </a>
+
+  <p class="divider-text">— or reach us by email —</p>
+
+  <div class="email-list">
+    <a class="email-link" href="mailto:mervinole@gmail.com">
+      <span class="email-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f6dc8a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/>
+        </svg>
+      </span>
+      <span class="email-meta">
+        <span class="email-label">General Inquiries</span>
+        <span class="email-address">mervinole@gmail.com</span>
+      </span>
+      <span class="email-arrow">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+        </svg>
+      </span>
+    </a>
+
+    <a class="email-link" href="mailto:budonialanceivan@gmail.com">
+      <span class="email-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f6dc8a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/>
+        </svg>
+      </span>
+      <span class="email-meta">
+        <span class="email-label">Editorial &amp; Submissions</span>
+        <span class="email-address">budonialanceivan@gmail.com</span>
+      </span>
+      <span class="email-arrow">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+        </svg>
+      </span>
+    </a>
+  </div>
+
+  <footer>© 2026 <span class="gold">Pamana Media &amp; Publishing, Inc.</span> — Providing high-quality, reliable printing and publishing services for your personal and business needs</footer>
+</main>
+
+<script>
+(function(){
+  var sparkCanvas = document.getElementById('sparkCanvas');
+  var sparkCtx = sparkCanvas.getContext('2d');
+  var sparkList = [];
+  var sparkCount = 55;
+
+  function sizeSparkCanvas(){
+    sparkCanvas.width = window.innerWidth;
+    sparkCanvas.height = window.innerHeight;
+  }
+  sizeSparkCanvas();
+  window.addEventListener('resize', sizeSparkCanvas);
+
+  function makeSpark(initial){
+    return {
+      posX: Math.random() * sparkCanvas.width,
+      posY: initial ? Math.random() * sparkCanvas.height : sparkCanvas.height + 10,
+      radius: Math.random() * 2.2 + 0.6,
+      speedY: Math.random() * 0.55 + 0.18,
+      driftX: (Math.random() - 0.5) * 0.4,
+      alpha: Math.random() * 0.55 + 0.2,
+      pulse: Math.random() * Math.PI * 2
+    };
+  }
+  for (var sIdx = 0; sIdx < sparkCount; sIdx++){
+    sparkList.push(makeSpark(true));
+  }
+
+  function drawSparks(){
+    sparkCtx.clearRect(0, 0, sparkCanvas.width, sparkCanvas.height);
+    for (var k = 0; k < sparkList.length; k++){
+      var dot = sparkList[k];
+      dot.posY -= dot.speedY;
+      dot.posX += dot.driftX;
+      dot.pulse += 0.03;
+      var glow = dot.alpha * (0.7 + 0.3 * Math.sin(dot.pulse));
+      if (dot.posY < -12 || dot.posX < -12 || dot.posX > sparkCanvas.width + 12){
+        sparkList[k] = makeSpark(false);
+        continue;
+      }
+      sparkCtx.beginPath();
+      sparkCtx.arc(dot.posX, dot.posY, dot.radius, 0, Math.PI * 2);
+      sparkCtx.fillStyle = 'rgba(246, 220, 138, ' + glow.toFixed(3) + ')';
+      sparkCtx.shadowColor = 'rgba(212, 175, 55, 0.9)';
+      sparkCtx.shadowBlur = 8;
+      sparkCtx.fill();
+      sparkCtx.shadowBlur = 0;
+    }
+    requestAnimationFrame(drawSparks);
+  }
+  drawSparks();
+})();
+</script>
+
+</body>
+</html>
