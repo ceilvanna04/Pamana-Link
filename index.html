@@ -1,4 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pamana Media &amp; Publishing, Inc. — Connect With Us</title>
+<meta name="description" content="Get in touch with Pamana Media &amp; Publishing, Inc. Message us on Facebook or email us for inquiries, manuscripts, and high-resolution submissions.">
+<meta name="theme-color" content="#2a0a4a">
+<meta property="og:title" content="Pamana Media &amp; Publishing, Inc. — Connect With Us">
+<meta property="og:description" content="Preserving Heritage, Publishing the Future.">
+<meta property="og:type" content="website">
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap">
+
+<style>
+:root {
+  --ink: #1d0a33;
+  --ink-soft: #4b3b63;
+  --purple: #41136e;
+  --purple-deep: #1a0530;
+  --purple-mid: #5a2b93;
+  --gold: #d4af37;
+  --gold-light: #f6dc8a;
+  --gold-dark: #8a6410;
+  --paper: #f5f2f9;
+  --card: #ffffff;
+  --line: #e1d8ee;
+  --serif: 'Instrument Serif', Georgia, 'Times New Roman', serif;
+  --sans: 'Instrument Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  font-family: var(--sans);
+  color: var(--ink);
+  background: #e9e2f3;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+  padding: clamp(10px, 3vw, 32px);
+  -webkit-font-smoothing: antialiased;
+}
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+/* ---------- Shell: two panels on desktop, stacked on mobile ---------- */
+.shell {
+  width: 100%;
+  max-width: 1040px;
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  border-radius: 28px;
+  overflow: hidden;
+  background: var(--paper);
+  box-shadow: 0 30px 70px rgba(42,10,74,.28), 0 2px 0 rgba(212,175,55,.6);
+  animation: rise .8s cubic-bezier(.22,1,.36,1) both;
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* ---------- Left: brand panel ---------- */
+.brand {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: clamp(28px, 5vw, 48px) clamp(22px, 4vw, 40px) clamp(22px, 3vw, 30px);
+  color: #fff;
+  background:
+    radial-gradient(600px 400px at 20% -10%, var(--purple-mid), transparent 65%),
+    linear-gradient(165deg, var(--purple) 0%, var(--purple-deep) 100%);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* thin gold frame inside the panel */
+.brand::before {
+  content: "";
+  position: absolute;
+  inset: 12px;
+  border: 1px solid rgba(212,175,55,.4);
+  border-radius: 18px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+#sparkCanvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.brand > *:not(#sparkCanvas) { position: relative; z-index: 2; }
+
+.logo-plaque {
+  background: #f6f6f9;
+  border-radius: 16px;
+  padding: clamp(12px, 2.5vw, 20px) clamp(10px, 2.5vw, 22px) clamp(8px, 2vw, 14px);
+  box-shadow: 0 14px 36px rgba(0,0,0,.45), 0 0 28px rgba(212,175,55,.3);
+  animation: float 5.5s ease-in-out infinite;
+  overflow: hidden;
+}
+.pamana-logo { display: block; width: 100%; height: auto; }
+
+@keyframes float { 50% { transform: translateY(-7px); } }
+
+.brand-copy { margin-top: clamp(28px, 6vw, 56px); }
+
+h1 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(2.4rem, 6vw, 3.6rem);
+  line-height: 1.02;
+  letter-spacing: -.01em;
+}
+
+.brand-copy p {
+  margin-top: 14px;
+  max-width: 30ch;
+  font-size: .98rem;
+  line-height: 1.55;
+  color: rgba(255,255,255,.82);
+}
+
+.rule {
+  width: 56px;
+  height: 3px;
+  margin-top: 22px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+}
+
+footer {
+  margin-top: auto;
+  padding-top: clamp(28px, 6vw, 48px);
+  font-size: .78rem;
+  line-height: 1.6;
+  color: rgba(255,255,255,.75);
+}
+footer .gold { color: var(--gold-light); font-weight: 600; }
+
+/* ---------- Right: channels ---------- */
+.channels {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: clamp(22px, 4vw, 44px) clamp(16px, 4vw, 40px);
+}
+
+.divider-text {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: .85rem;
+  color: var(--ink-soft);
+}
+.divider-text::before, .divider-text::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+
+.channel {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--gold);
+  border-radius: 14px;
+  overflow: hidden;
+  transition: box-shadow .25s ease, border-color .25s ease;
+}
+
+/* Primary action row */
+.channel-main {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 72px;
+  padding: 14px clamp(14px, 3vw, 20px);
+  text-decoration: none;
+  color: inherit;
+  transition: background .25s ease;
+}
+
+.icon-badge {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  color: var(--gold-light);
+  background: linear-gradient(140deg, var(--purple-mid), var(--purple));
+}
+
+.meta { display: flex; flex-direction: column; gap: 2px; min-width: 0; flex: 1; }
+.meta .label { font-size: .86rem; font-weight: 600; color: var(--purple); }
+.meta .value { font-size: clamp(.9rem, 2.5vw, 1.02rem); font-weight: 600; overflow-wrap: anywhere; }
+
+.arrow { flex-shrink: 0; color: var(--gold-dark); transition: transform .25s ease; }
+
+/* Facebook is the primary call to action: a solid button */
+.btn-facebook {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 56px;
+  margin: 16px 16px 4px;
+  padding: 14px 22px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1rem;
+  color: #fff;
+  background: linear-gradient(120deg, var(--purple), var(--purple-mid));
+  box-shadow: 0 8px 20px rgba(65,19,110,.3), inset 0 0 0 1px rgba(246,220,138,.5);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.btn-facebook svg { width: 22px; height: 22px; flex-shrink: 0; color: var(--gold-light); }
+.btn-facebook:active { transform: scale(.99); }
+
+/* Guides: collapsible, open by default */
+.guide { padding: 6px 16px 16px; }
+
+.guide summary {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 0;
+  list-style: none;
+  cursor: pointer;
+  font-size: .9rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+.guide summary::-webkit-details-marker { display: none; }
+.guide summary::after {
+  content: "";
+  margin-left: auto;
+  width: 8px; height: 8px;
+  border-right: 2px solid var(--gold-dark);
+  border-bottom: 2px solid var(--gold-dark);
+  transform: rotate(45deg);
+  transition: transform .2s ease;
+}
+.guide[open] summary::after { transform: rotate(-135deg); }
+
+.dot { width: 7px; height: 7px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
+
+.guide-desc { font-size: .88rem; line-height: 1.55; color: var(--ink-soft); }
+
+.guide ul { list-style: none; margin: 10px 0 0; display: grid; gap: 6px; }
+.guide li {
+  position: relative;
+  padding-left: 26px;
+  font-size: .88rem;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+.guide li::before {
+  content: "✓";
+  position: absolute;
+  left: 0; top: 1px;
+  display: grid; place-items: center;
+  width: 17px; height: 17px;
+  border-radius: 50%;
+  font-size: .62rem; font-weight: 700;
+  color: var(--purple);
+  background: rgba(212,175,55,.28);
+}
+
+.note {
+  margin-top: 12px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  font-size: .82rem;
+  line-height: 1.5;
+  color: var(--ink);
+  background: #fbf4dc;
+  border: 1px dashed rgba(169,127,28,.55);
+  overflow-wrap: anywhere;
+}
+
+/* ---------- Interaction ---------- */
+@media (hover: hover) {
+  .btn-facebook:hover { transform: translateY(-2px); box-shadow: 0 14px 28px rgba(65,19,110,.38), inset 0 0 0 1px var(--gold-light); }
+  .channel:hover { border-color: var(--gold); box-shadow: 0 10px 28px rgba(65,19,110,.14); }
+  a.channel-main:hover { background: #faf6ee; }
+  a.channel-main:hover .arrow { transform: translateX(4px); }
+}
+
+:focus-visible { outline: 3px solid var(--purple-mid); outline-offset: 3px; }
+.brand :focus-visible { outline-color: var(--gold-light); }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 820px) {
+  .shell { grid-template-columns: 1fr; border-radius: 22px; }
+  .brand-copy { margin-top: 28px; }
+  footer { padding-top: 28px; }
+}
+
+@media (max-width: 380px) {
+  .channel-main { gap: 10px; }
+  .icon-badge { width: 38px; height: 38px; }
+}
+
+@media (max-height: 500px) and (orientation: landscape) {
+  body { align-items: start; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shell, .logo-plaque { animation: none; }
+  * { transition-duration: .01ms !important; }
+  #sparkCanvas { display: none; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="shell">
+
+  <!-- Brand panel -->
+  <header class="brand">
+    <canvas id="sparkCanvas" aria-hidden="true"></canvas>
+
+    <div class="logo-plaque">
+      <!-- Set width/height to your logo's real pixel size to prevent layout shift -->
+      <img class="pamana-logo" src="Pamana Logo.png" width="600" height="240"
+           alt="Pamana Media &amp; Publishing, Inc. logo" decoding="async">
+    </div>
+
+    <div class="brand-copy">
+      <h1><span class="sr-only">Pamana Media &amp; Publishing, Inc. — </span>Connect with us</h1>
+      <p>Message us on Facebook or send an email. Pick the channel that fits what you're sending.</p>
+      <div class="rule" aria-hidden="true"></div>
+    </div>
+
+    <footer>
+      © <span id="year">2026</span>
+      <span class="gold">Pamana Media &amp; Publishing, Inc.</span><br>
+      Preserving Heritage, Publishing the Future
+    </footer>
+  </header>
+
+  <!-- Channels panel -->
+  <main class="channels">
+
+    <!-- Facebook -->
+    <article class="channel">
+      <a class="btn-facebook"
+         href="https://www.facebook.com/PamanaMediaPublishing"
+         target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+          <path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047v-2.66c0-3.026 1.792-4.697 4.533-4.697 1.313 0 2.686.236 2.686.236v2.971H15.83c-1.491 0-1.956.931-1.956 1.886v2.264h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/>
+        </svg>
+        <span>Visit our Facebook page<span class="sr-only"> (opens in a new tab)</span></span>
+      </a>
+
+      <details class="guide" open>
+        <summary><span class="dot" aria-hidden="true"></span>What to send here</summary>
+        <p class="guide-desc">Our Facebook page is best for light files and quick messages.</p>
+        <ul>
+          <li>PDF documents</li>
+          <li>Word documents (.doc, .docx)</li>
+          <li>Links to articles or references</li>
+        </ul>
+        <p class="note">📌 For high-resolution images, please use the Editorial &amp; Submissions email below.</p>
+      </details>
+    </article>
+
+    <p class="divider-text">or reach us by email</p>
+
+    <!-- General inquiries -->
+    <article class="channel">
+      <a class="channel-main" href="mailto:mervinole@gmail.com?subject=General%20Inquiry">
+        <span class="icon-badge" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/>
+          </svg>
+        </span>
+        <span class="meta">
+          <span class="label">General inquiries</span>
+          <span class="value">mervinole@gmail.com</span>
+        </span>
+        <span class="arrow" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+          </svg>
+        </span>
+      </a>
+
+      <details class="guide" open>
+        <summary><span class="dot" aria-hidden="true"></span>For additional questions</summary>
+        <p class="guide-desc">Use this email for any extra questions about Pamana Media &amp; Publishing, Inc.</p>
+        <ul>
+          <li>General questions about our services</li>
+          <li>Partnership &amp; collaboration inquiries</li>
+          <li>Press, media, and event requests</li>
+          <li>Feedback and support</li>
+        </ul>
+        <p class="note">📌 Not sure where to send something? Start here and we'll guide you.</p>
+      </details>
+    </article>
+
+    <!-- Editorial & submissions -->
+    <article class="channel">
+      <a class="channel-main" href="mailto:budonialanceivan@gmail.com?subject=Editorial%20Submission">
+        <span class="icon-badge" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/>
+          </svg>
+        </span>
+        <span class="meta">
+          <span class="label">Editorial &amp; submissions</span>
+          <span class="value">budonialanceivan@gmail.com</span>
+        </span>
+        <span class="arrow" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+          </svg>
+        </span>
+      </a>
+
+      <details class="guide" open>
+        <summary><span class="dot" aria-hidden="true"></span>For images &amp; large files</summary>
+        <p class="guide-desc">Send high-resolution images and large files here — no quality loss.</p>
+        <ul>
+          <li>High-resolution images (no quality loss)</li>
+          <li>Large file attachments (PSD, AI, TIFF, RAW)</li>
+          <li>Manuscripts and full editorial submissions</li>
+          <li>Print-ready artwork and layouts</li>
+        </ul>
+        <p class="note">📌 This channel preserves full file quality — perfect for publishing-grade content.</p>
+      </details>
+    </article>
+
+  </main>
+</div>
+
+<script>
+(function () {
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+  if (motionQuery.matches) return;
+
+  const canvas = document.getElementById('sparkCanvas');
+  const panel = canvas.parentElement;
+  const ctx = canvas.getContext('2d');
+  const sparks = [];
+  let width = 0, height = 0, rafId = null;
+
+  function resize() {
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    width = panel.clientWidth;
+    height = panel.clientHeight;
+    canvas.width = width * dpr;
+    canvas.height = height * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+
+  function makeSpark(initial) {
+    return {
+      x: Math.random() * width,
+      y: initial ? Math.random() * height : height + 10,
+      r: Math.random() * 2 + 0.6,
+      vy: Math.random() * 0.5 + 0.16,
+      vx: (Math.random() - 0.5) * 0.35,
+      alpha: Math.random() * 0.55 + 0.25,
+      phase: Math.random() * Math.PI * 2
+    };
+  }
+
+  function init() {
+    resize();
+    sparks.length = 0;
+    const count = width < 500 ? 22 : 36;
+    for (let i = 0; i < count; i++) sparks.push(makeSpark(true));
+  }
+
+  function frame() {
+    ctx.clearRect(0, 0, width, height);
+    ctx.shadowColor = 'rgba(212,175,55,.9)';
+    ctx.shadowBlur = 8;
+    for (let i = 0; i < sparks.length; i++) {
+      const s = sparks[i];
+      s.y -= s.vy; s.x += s.vx; s.phase += 0.03;
+      if (s.y < -12 || s.x < -12 || s.x > width + 12) { sparks[i] = makeSpark(false); continue; }
+      ctx.beginPath();
+      ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(246,220,138,' + (s.alpha * (0.7 + 0.3 * Math.sin(s.phase))).toFixed(3) + ')';
+      ctx.fill();
+    }
+    rafId = requestAnimationFrame(frame);
+  }
+
+  function start() { if (!rafId) rafId = requestAnimationFrame(frame); }
+  function stop()  { if (rafId) { cancelAnimationFrame(rafId); rafId = null; } }
+
+  document.addEventListener('visibilitychange', () => document.hidden ? stop() : start());
+
+  // Re-fit when the brand panel changes size (layout switch, rotation, window resize)
+  let timer;
+  new ResizeObserver(() => { clearTimeout(timer); timer = setTimeout(init, 150); }).observe(panel);
+
+  motionQuery.addEventListener('change', e => {
+    if (e.matches) { stop(); ctx.clearRect(0, 0, width, height); } else { init(); start(); }
+  });
+
+  init();
+  start();
+})();
+</script>
+
+</body>
+</html>
 <!DOCTYPE html>
 <html lang="en">
 <head>
